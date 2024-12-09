@@ -48,9 +48,9 @@ export default function login () {
                     password: form.password,
                 }
             })
-            const access_token = response.data.data
-            Cookies.set("Authorization", access_token)
-            
+            const {data, userId} = response.data
+            Cookies.set("Authorization", data)
+            Cookies.set("userId", userId)
             const result = await Swal.fire({
                 title: "Welcome back!",
                 text: "You successfully login",

@@ -13,12 +13,13 @@ export default function AuthProvider({children}){
 
     const login = () => {
         setIsLoggedIn(true)
-        Cookies.set('isLoggedIn', 'true')
     }
 
     const logout = () => {
         setIsLoggedIn(false)
-        Cookies.remove('isLoggedIn')
+        Cookies.remove('userId')
+        Cookies.remove('Authorization')
+        window.location.reload('/')
     }
 
     return (
